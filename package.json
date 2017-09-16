@@ -23,6 +23,7 @@
   "homepage": "https://github.com/fhernand/vrledpainter#readme",
   "dependencies": {
     "express": "^4.15.4",
+    "rpi-ws281x-native": "^0.8.2",
     "socket.io": "^2.0.3",
     "unicornhat-hd": "0.0.4"
   }
