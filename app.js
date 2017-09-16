@@ -29,6 +29,7 @@ if(io){
 	this.socket.on('removeStroke', event => {
         if(event.stroke.owner === self.socket.owner) event.stroke.owner = 'local';
         //this.system.removeStoke(event);
+	console.log("Remove Stroke");
       });
 
 	  this.socket.on('newStroke', event => {
@@ -40,7 +41,7 @@ if(io){
 	  this.socket.on('newPoints', event => {
 		if(!event[0] || event[0].stroke.owner === self.socket.owner) return;
 		//this.strokeBuffer.push(event);
-		console.log("New points");
+		//console.log("New points");
 	  });
 
 	  this.socket.on('userMove', event => {
