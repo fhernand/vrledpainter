@@ -1,0 +1,27 @@
+{
+  "name": "vrledpainter",
+  "version": "1.0.0",
+  "description": "VR LED painter client",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fhernand/vrledpainter.git"
+  },
+  "keywords": [
+    "VR",
+    "LED",
+    "painting"
+  ],
+  "author": "Felipe Hernandez Plazas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fhernand/vrledpainter/issues"
+  },
+  "homepage": "https://github.com/fhernand/vrledpainter#readme",
+  "dependencies": {
+    "unicornhat-hd": "0.0.4"
+  }
+}
