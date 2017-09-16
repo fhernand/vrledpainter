@@ -78,13 +78,13 @@ UnicornHatHD.prototype.show = function (flip_horizontal, flip_vertical) {
         this.matrix.reverse();
     }
 
-    var buffer = new Buffer(4 * 4 * 3);
+    var buffer = new Buffer(16 * 16 * 3);
 
     for (var y=0; y<4; y++) {
         for (var x=0; x<4; x++) {
-            buffer[y * 4 * 3 + x * 3 + 0] = this.matrix[x][y].r * this.brightness;
-            buffer[y * 4 * 3 + x * 3 + 1] = this.matrix[x][y].g * this.brightness;
-            buffer[y * 4 * 3 + x * 3 + 2] = this.matrix[x][y].b * this.brightness;
+            buffer[y * 16 * 3 + x * 3 + 0] = this.matrix[x][y].r * this.brightness;
+            buffer[y * 16 * 3 + x * 3 + 1] = this.matrix[x][y].g * this.brightness;
+            buffer[y * 16 * 3 + x * 3 + 2] = this.matrix[x][y].b * this.brightness;
         }
     }
     
