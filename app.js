@@ -8,7 +8,7 @@ this.strokeBuffer = [];
 this.lastBufferProcess = 0;
 
 if(io){
-	this.socket = io.connect('http://192.168.0.185:3002');
+	this.socket = io.connect('http://192.168.0.220:3002');
 	var self = this;
 	self.joinedRoom = 'theRoom';
 	this.socket.on('connect', function (socket) {
@@ -34,11 +34,13 @@ if(io){
 	  this.socket.on('newStroke', event => {
 		if(event.stroke.owner === self.socket.owner) return;
 		this.strokeBuffer.push(event);
+		console.log("New stroke");
 	  });
 
 	  this.socket.on('newPoints', event => {
 		if(!event[0] || event[0].stroke.owner === self.socket.owner) return;
 		this.strokeBuffer.push(event);
+		console.log("New points");
 	  });
 
 	  this.socket.on('userMove', event => {
