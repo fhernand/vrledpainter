@@ -23,34 +23,34 @@ if(io){
 	});
 
 	this.socket.on('joinedRoom', function (roomlog){
-		console.log(roomlog);
+		console.log("Joined the Room!");
 	});
 	
 	this.socket.on('removeStroke', event => {
         if(event.stroke.owner === self.socket.owner) event.stroke.owner = 'local';
-        this.system.removeStoke(event);
+        //this.system.removeStoke(event);
       });
 
 	  this.socket.on('newStroke', event => {
 		if(event.stroke.owner === self.socket.owner) return;
-		this.strokeBuffer.push(event);
+		//this.strokeBuffer.push(event);
 		console.log("New stroke");
 	  });
 
 	  this.socket.on('newPoints', event => {
 		if(!event[0] || event[0].stroke.owner === self.socket.owner) return;
-		this.strokeBuffer.push(event);
+		//this.strokeBuffer.push(event);
 		console.log("New points");
 	  });
 
 	  this.socket.on('userMove', event => {
 		if(event.owner === self.socket.owner) return;
-		this.system.userMove(event);
+		//this.system.userMove(event);
 	  });
 
 	  this.socket.on('userLeave', event => {
 		if(event.owner === self.socket.owner) return;
-		this.system.userLeave(event);
+		//this.system.userLeave(event);
 	  });	
 	  	  
 }
