@@ -87,7 +87,8 @@ UnicornHatHD.prototype.show = function (flip_horizontal, flip_vertical) {
             buffer[y * 4 * 3 + x * 3 + 2] = this.matrix[x][y].b * this.brightness;
         }
     }
-
+    
+    console.log("about to write");
     this.spi.write(Buffer.concat([new Buffer([0x72]), buffer]), function (err) {
         if (err) {
             throw 'Something went wrong!';
