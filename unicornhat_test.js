@@ -1,6 +1,6 @@
-var ws281x = require('node-rpi-ws281x-native');
+var ws281x = require('rpi-ws281x-native');
 
-var NUM_LEDS = parseInt(process.argv[2], 10) || 10,
+var NUM_LEDS = 32,
     pixelData = new Uint32Array(NUM_LEDS);
 
 ws281x.init(NUM_LEDS);
