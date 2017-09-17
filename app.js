@@ -5,6 +5,7 @@ this.strokeBuffer = [];
 this.lastBufferProcess = 0;
 
 this.strokeActive = false;
+this.LEDallblack = true;
 var self = this;
 
 if(io){
@@ -78,16 +79,28 @@ process.on('SIGINT', function () {
 var offset = 0;
 setInterval(function () {
 	if (self.strokeActive){
-  	for (var i = 0; i < NUM_LEDS; i++) {
-		pixelData[i] = colorwheel((offset + i) % 256);
-	}
-	offset = (offset + 1) % 256;
-	ws281x.render(pixelData);
+		for (var i = 0; i < NUM_LEDS; i++) {
+			pixelData[i] = colorwheel((offset + i) % 256);
+		}
+		offset = (offset + 1) % 256;
+		ws281x.render(pixelData);
+		if(self.LEDallblack){
+			self.LEDallblack = false;
+		}
 	} else {
-        ws281x.render(blackpixelData);
+		clearLEDs();
 	}
 }, 1000 / 30);
 
+function clearLEDs(){
+	if (!self.LEDallblack){
+		for (var i = 0; i < NUM_LEDS; i++) {
+			blackpixelData[i] = colorwheel(0);
+		}
+		ws281x.render(blackpixelData);
+		self.LEDallblack = true;
+	}	
+}
 // rainbow-colors, taken from http://goo.gl/Cs3H0v
 function colorwheel(pos) {
   pos = 255 - pos;
