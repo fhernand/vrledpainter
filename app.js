@@ -86,6 +86,7 @@ setInterval(function () {
 	ws281x.render(pixelData);
 	} else {
         ws281x.render(blackpixelData);
+	}
 }, 1000 / 30);
 
 // rainbow-colors, taken from http://goo.gl/Cs3H0v
