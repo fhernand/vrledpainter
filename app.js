@@ -77,7 +77,6 @@ process.on('SIGINT', function () {
 // ---- animation-loop
 var offset = 0;
 setInterval(function () {
-	console.log(self.strokeActive)
 	if (self.strokeActive){
   	for (var i = 0; i < NUM_LEDS; i++) {
 		pixelData[i] = colorwheel((offset + i) % 256);
