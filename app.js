@@ -77,14 +77,14 @@ process.on('SIGINT', function () {
 // ---- animation-loop
 var offset = 0;
 setInterval(function () {
-  if (self.strokeActive){
+  //if (self.strokeActive){
   for (var i = 0; i < NUM_LEDS; i++) {
 		pixelData[i] = colorwheel((offset + i) % 256);
 	  }
 
 	  offset = (offset + 1) % 256;
 	  ws281x.render(pixelData);
-  }
+ // }
 }, 1000 / 30);
 
 // rainbow-colors, taken from http://goo.gl/Cs3H0v
