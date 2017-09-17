@@ -4,7 +4,7 @@ var io = require('socket.io-client');
 this.strokeBuffer = [];
 this.lastBufferProcess = 0;
 
-this.strokeActive = False;
+this.strokeActive = false;
 var self = this;
 
 if(io){
@@ -35,12 +35,12 @@ if(io){
 		if(event.stroke.owner === self.socket.owner) return;
 		//this.strokeBuffer.push(event);
 		console.log("New stroke");
-		self.strokeActive = True;
+		self.strokeActive = true;
 	  });
 
 	  this.socket.on('endStroke', () => {
 		console.log("End stroke");
-		self.strokeActive = False;
+		self.strokeActive = false;
 	  });
 
 	  this.socket.on('newPoints', event => {
