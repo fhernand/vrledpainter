@@ -95,7 +95,7 @@ setInterval(function () {
 function clearLEDs(){
 	if (!self.LEDallblack){
 		for (var i = 0; i < NUM_LEDS; i++) {
-			blackpixelData[i] = colorwheel(0);
+			blackpixelData[i] = rgb2Int(0,0,0);
 		}
 		ws281x.render(blackpixelData);
 		self.LEDallblack = true;
