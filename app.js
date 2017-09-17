@@ -38,9 +38,7 @@ if(io){
 		console.log("New stroke");
 	  });
 
-	  this.socket.on('endStroke', event => {
-		if(event.stroke.owner === self.socket.owner) return;
-		//this.strokeBuffer.push(event);
+	  this.socket.on('endStroke', () => {
 		console.log("End stroke");
 	  });
 
