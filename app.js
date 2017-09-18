@@ -37,7 +37,7 @@ if(io){
 		if(event.stroke.owner === self.socket.owner) return;
 		//this.strokeBuffer.push(event);
 		console.log("New stroke");
-		self.activeColor = event.stroke.data.color  
+		self.activeColor = event.stroke.color  
 		console.log(activeColor);  
 		self.strokeActive = true;
 	  });
