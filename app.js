@@ -67,7 +67,7 @@ if(io){
 
 var ws281x = require('rpi-ws281x-native');
 
-var NUM_LEDS = 3,
+var NUM_LEDS = 32,
     pixelData = new Uint32Array(NUM_LEDS);
     blackpixelData = new Uint32Array(NUM_LEDS);
 ws281x.init(NUM_LEDS);
@@ -83,7 +83,7 @@ var offset = 0;
 setInterval(function () {
 	if (self.strokeActive){
 		for (var i = 0; i < NUM_LEDS; i++) {
-			pixelData[i] = colorwheel((offset + i) % 256);
+			pixelData[i] = self.activeColor//colorwheel((offset + i) % 256);
 		}
 		offset = (offset + 1) % 256;
 		ws281x.render(pixelData);
