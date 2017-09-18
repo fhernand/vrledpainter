@@ -83,7 +83,7 @@ var offset = 0;
 setInterval(function () {
 	if (self.strokeActive){
 		for (var i = 0; i < NUM_LEDS; i++) {
-			pixelData[i] = rgb2Int(self.activeColor);//colorwheel((offset + i) % 256);
+			pixelData[i] = rgb2Int(self.activeColor[0],self.activeColor[1],self.activeColor[2],);//colorwheel((offset + i) % 256);
 		}
 		offset = (offset + 1) % 256;
 		ws281x.render(pixelData);
