@@ -38,7 +38,7 @@ if(io){
 		//this.strokeBuffer.push(event);
 		console.log("New stroke");
 		self.activeColor = event.stroke.color  
-		console.log(activeColor);  
+		console.log(self.activeColor);  
 		self.strokeActive = true;
 	  });
 
