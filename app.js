@@ -6,6 +6,7 @@ this.lastBufferProcess = 0;
 
 this.strokeActive = false;
 this.LEDallblack = true;
+this.activeColor = '#ffffff'
 var self = this;
 
 if(io){
@@ -36,6 +37,8 @@ if(io){
 		if(event.stroke.owner === self.socket.owner) return;
 		//this.strokeBuffer.push(event);
 		console.log("New stroke");
+		self.activeColor = event.detail.stroke.data.color.toArray()  
+		console.log(activeColor);  
 		self.strokeActive = true;
 	  });
 
