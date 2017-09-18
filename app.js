@@ -37,7 +37,7 @@ if(io){
 		if(event.stroke.owner === self.socket.owner) return;
 		//this.strokeBuffer.push(event);
 		console.log("New stroke");
-		self.activeColor = event.stroke.color  
+		//self.activeColor = event.stroke.color  
 		console.log(self.activeColor);  
 		self.strokeActive = true;
 	  });
@@ -83,7 +83,7 @@ var offset = 0;
 setInterval(function () {
 	if (self.strokeActive){
 		for (var i = 0; i < NUM_LEDS; i++) {
-			pixelData[i] = self.activeColor//colorwheel((offset + i) % 256);
+			pixelData[i] = rgb2Int(self.activeColor);//colorwheel((offset + i) % 256);
 		}
 		offset = (offset + 1) % 256;
 		ws281x.render(pixelData);
