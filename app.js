@@ -1,8 +1,5 @@
 
 var io = require('socket.io-client');
- 
-this.strokeBuffer = [];
-this.lastBufferProcess = 0;
 
 this.strokeActive = false;
 this.LEDallblack = true;
@@ -28,20 +25,13 @@ if(io){
 	this.socket.on('joinedRoom', function (roomlog){
 		console.log("Joined the Room!");
 	});
-	
-	this.socket.on('removeStroke', event => {
-        if(event.stroke.owner === self.socket.owner) event.stroke.owner = 'local';
-        //this.system.removeStoke(event);
-	console.log("Remove Stroke");
-      });
 
-	  this.socket.on('newStroke', event => {
+	this.socket.on('newStroke', event => {
 		if(event.stroke.owner === self.socket.owner) return;
-		//this.strokeBuffer.push(event);
 		console.log("New stroke");
-		this.activeRed = event.stroke.color[0] * 256;
-		this.activeGreen = event.stroke.color[1] * 256;
-		this.activeBlue = event.stroke.color[2] * 256;
+		this.activeRed = Math.round(event.stroke.color[0] * 255);
+		this.activeGreen = Math.round(event.stroke.color[1] * 255);
+		this.activeBlue = Math.round(event.stroke.color[2] * 255);
 		self.strokeActive = true;
 	  });
 
@@ -52,27 +42,19 @@ if(io){
 
 	  this.socket.on('newPoints', event => {
 		if(!event[0] || event[0].stroke.owner === self.socket.owner) return;
-		//this.strokeBuffer.push(event);
 		//console.log("New points");
 	  });
 
-	  this.socket.on('userMove', event => {
-		if(event.owner === self.socket.owner) return;
-		//this.system.userMove(event);
-	  });
-
-	  this.socket.on('userLeave', event => {
-		if(event.owner === self.socket.owner) return;
-		//this.system.userLeave(event);
-	  });	
-	  	  
 }
 
 var ws281x = require('rpi-ws281x-native');
 
 var NUM_LEDS = 32,
-    pixelData = new Uint32Array(NUM_LEDS);
-    blackpixelData = new Uint32Array(NUM_LEDS);
+pixelData = new Uint32Array(NUM_LEDS);
+blackpixelData = new Uint32Array(NUM_LEDS);
+for (var i = 0; i < NUM_LEDS; i++) {
+			blackpixelData[i] = rgb2Int(0,0,0);
+}
 ws281x.init(NUM_LEDS);
 
 // ---- trap the SIGINT and reset before exit
@@ -82,13 +64,12 @@ process.on('SIGINT', function () {
 });
 
 // ---- animation-loop
-var offset = 0;
 setInterval(function () {
 	if (self.strokeActive){
+		var currentColor = rgb2Int(self.activeRed,self.activeGreen,self.activeBlue);
 		for (var i = 0; i < NUM_LEDS; i++) {
-			pixelData[i] = rgb2Int(self.activeRed,self.activeGreen,self.activeBlue);//colorwheel((offset + i) % 256);
+			pixelData[i] = currentColor;//colorwheel((offset + i) % 256);
 		}
-		offset = (offset + 1) % 256;
 		ws281x.render(pixelData);
 		if(self.LEDallblack){
 			self.LEDallblack = false;
@@ -100,19 +81,9 @@ setInterval(function () {
 
 function clearLEDs(){
 	if (!self.LEDallblack){
-		for (var i = 0; i < NUM_LEDS; i++) {
-			blackpixelData[i] = rgb2Int(0,0,0);
-		}
 		ws281x.render(blackpixelData);
 		self.LEDallblack = true;
 	}	
-}
-// rainbow-colors, taken from http://goo.gl/Cs3H0v
-function colorwheel(pos) {
-  pos = 255 - pos;
-  if (pos < 85) { return rgb2Int(255 - pos * 3, 0, pos * 3); }
-  else if (pos < 170) { pos -= 85; return rgb2Int(0, pos * 3, 255 - pos * 3); }
-  else { pos -= 170; return rgb2Int(pos * 3, 255 - pos * 3, 0); }
 }
 
 function rgb2Int(r, g, b) {
