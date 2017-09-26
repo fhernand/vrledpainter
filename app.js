@@ -25,7 +25,7 @@ this.sizeThirteen = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3'
 this.sizeFourteen = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','2','3','3','3','3','3','3','2'];  
 this.sizeFifteen  = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3'];  
 
-this.brushSizes = [sizeZero,sizeOne, sizeTwo, sizeThree,sizeFour, sizeFive, sizeSix, sizeSeven, sizeEight, sizeEleven, sizeTwelve, sizeThirteen, sizeFourteen, sizeFifteen];
+this.brushSizes = [this.sizeZero,this.sizeOne, this.sizeTwo, this.sizeThree,this.sizeFour, this.sizeFive, this.sizeSix, this.sizeSeven, this.sizeEight, this.sizeEleven, this.sizeTwelve, this.sizeThirteen, this.sizeFourteen, this.sizeFifteen];
 
 this.activeSize = brushSizes[0];
 
