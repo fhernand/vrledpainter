@@ -27,7 +27,7 @@ this.sizeFifteen  = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3'
 
 this.brushSizes = [this.sizeZero,this.sizeOne, this.sizeTwo, this.sizeThree,this.sizeFour, this.sizeFive, this.sizeSix, this.sizeSeven, this.sizeEight, this.sizeEleven, this.sizeTwelve, this.sizeThirteen, this.sizeFourteen, this.sizeFifteen];
 
-this.activeSize = brushSizes[0];
+this.activeSize = this.brushSizes[0];
 
 var self = this;
 
