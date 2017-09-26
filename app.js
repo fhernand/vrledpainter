@@ -114,8 +114,9 @@ setInterval(function () {
 				case 3:
 					pixelData[i] = currentColor;
 					break;
-				default:		
-					pixelData[i] = colorwheel((offset + i) % 256);
+				default:
+					console.log("No size data available");
+					//pixelData[i] = colorwheel((offset + i) % 256);
 			}
 		}
 		ws281x.render(pixelData);
