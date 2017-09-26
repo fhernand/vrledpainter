@@ -61,6 +61,7 @@ if(io){
 
 	  this.socket.on('endStroke', () => {
 		console.log("End stroke");
+		self.activeSize = self.brushSizes[0];  
 		self.strokeActive = false;
 	  });
 
@@ -94,7 +95,7 @@ process.on('SIGINT', function () {
 
 // ---- animation-loop
 setInterval(function () {
-	if (self.strokeActive){
+	if (self.strokeActive && self.activeSize){
 		var lowModifier = 4;
 		var mediumModifier = 2;
 		var currentColor = rgb2Int(self.activeRed,self.activeGreen,self.activeBlue);
