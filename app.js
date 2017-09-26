@@ -57,6 +57,7 @@ if(io){
 		this.activeBlue = Math.round(event.stroke.color[2] * 255);
 		self.strokeActive = true;
 	  });
+	
 
 	  this.socket.on('endStroke', () => {
 		console.log("End stroke");
@@ -68,10 +69,9 @@ if(io){
 		//console.log("New points");
 	  });
 	
-	  this.socket.on('newSize', event => {
-		if(!event[0] || event[0].stroke.owner === self.socket.owner) return;
-		console.log("Size changed");
-		self.activeSize = self.brushSizes[event.stroke.size];	 
+	  this.socket.on('newLEDSize', event => {
+		console.log("LEDSize changed: ", event.ledsize);
+		self.activeSize = self.brushSizes[event.ledsize];	 
 	  });	
 
 }
