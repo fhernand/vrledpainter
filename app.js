@@ -6,6 +6,7 @@ this.LEDallblack = true;
 this.activeRed = 0;
 this.activeGreen = 0;
 this.activeBlue = 0;
+this.activeLEDSize = 0;
 this.blackColor =  rgb2Int(0,0,0);
 
 this.sizeZero     = ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];  
@@ -71,8 +72,12 @@ if(io){
 	  });
 	
 	  this.socket.on('newLEDSize', event => {
+		  
 		console.log("LEDSize changed: ", event.ledsize);
+		  if (event.ledsize != self.activeLEDSize){
+		      self.activeLEDSize = event.ledsize;
 		self.activeSize = self.brushSizes[event.ledsize];	 
+		      }
 	  });	
 
 }
