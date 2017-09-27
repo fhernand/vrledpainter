@@ -66,18 +66,20 @@ if(io){
 		self.strokeActive = false;
 	  });
 
+	/*
 	  this.socket.on('newPoints', event => {
 		if(!event[0] || event[0].stroke.owner === self.socket.owner) return;
 		//console.log("New points");
 	  });
+	  */
 	
 	  this.socket.on('newLEDSize', event => {
 		  
-		console.log("LEDSize changed: ", event.ledsize);
+		//console.log("LEDSize changed: ", event.ledsize);
 		  if (event.ledsize != self.activeLEDSize){
 		      self.activeLEDSize = event.ledsize;
-		self.activeSize = self.brushSizes[event.ledsize];	 
-		      }
+		      self.activeSize = self.brushSizes[event.ledsize];	 
+		  }
 	  });	
 
 }
@@ -106,7 +108,7 @@ setInterval(function () {
 		var currentColor = rgb2Int(self.activeRed,self.activeGreen,self.activeBlue);
 		var currentColorLow = rgb2Int(Math.round(self.activeRed / lowModifier), Math.round(self.activeGreen / lowModifier), Math.round(self.activeBlue / lowModifier)); 
 		var currentColorMedium = rgb2Int(Math.round(self.activeRed / mediumModifier), Math.round(self.activeGreen / mediumModifier), Math.round(self.activeBlue / mediumModifier)); 
-		for (var i = 0; i < NUM_LEDS; i++) {
+		for (var i = NUM_LEDS - 1; i >= 0; i--) {
 			switch (self.activeSize[i]){
 				case '0':
 					pixelData[i] = self.blackColor;
@@ -121,7 +123,7 @@ setInterval(function () {
 					pixelData[i] = currentColor;
 					break;
 				default:
-					console.log("No size data available");
+					//console.log("No size data available");
 					//pixelData[i] = colorwheel((offset + i) % 256);
 			}
 		}
