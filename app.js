@@ -111,16 +111,16 @@ setInterval(function () {
 		for (var i = 0; i < NUM_LEDS; i++) {
 			switch (self.activeSize[i]){
 				case '0':
-					pixelData[i] = self.blackColor;
+					pixelData[NUM_LEDS - 1 - i] = self.blackColor;
 					break;
 				case '1':
-					pixelData[i] = currentColorLow;
+					pixelData[NUM_LEDS - 1 - i] = currentColorLow;
 					break;					
 				case '2':
-					pixelData[i] = currentColorMedium;
+					pixelData[NUM_LEDS - 1 - i] = currentColorMedium;
 					break;					
 				case '3':
-					pixelData[i] = currentColor;
+					pixelData[NUM_LEDS - 1 - i] = currentColor;
 					break;
 				default:
 					//console.log("No size data available");
