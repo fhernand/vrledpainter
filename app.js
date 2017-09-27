@@ -108,7 +108,7 @@ setInterval(function () {
 		var currentColor = rgb2Int(self.activeRed,self.activeGreen,self.activeBlue);
 		var currentColorLow = rgb2Int(Math.round(self.activeRed / lowModifier), Math.round(self.activeGreen / lowModifier), Math.round(self.activeBlue / lowModifier)); 
 		var currentColorMedium = rgb2Int(Math.round(self.activeRed / mediumModifier), Math.round(self.activeGreen / mediumModifier), Math.round(self.activeBlue / mediumModifier)); 
-		for (var i = NUM_LEDS - 1; i >= 0; i--) {
+		for (var i = 0; i < NUM_LEDS; i++) {
 			switch (self.activeSize[i]){
 				case '0':
 					pixelData[i] = self.blackColor;
