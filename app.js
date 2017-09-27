@@ -52,7 +52,7 @@ if(io){
 
 	this.socket.on('newStroke', event => {
 		if(event.stroke.owner === self.socket.owner) return;
-		console.log("New stroke");
+		//console.log("New stroke");
 		this.activeRed = Math.round(event.stroke.color[0] * 255);
 		this.activeGreen = Math.round(event.stroke.color[1] * 255);
 		this.activeBlue = Math.round(event.stroke.color[2] * 255);
@@ -61,7 +61,7 @@ if(io){
 	
 
 	  this.socket.on('endStroke', () => {
-		console.log("End stroke");
+		//console.log("End stroke");
 		self.activeSize = self.brushSizes[0];  
 		self.strokeActive = false;
 	  });
