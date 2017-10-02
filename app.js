@@ -1,6 +1,7 @@
 
 var io = require('socket.io-client');
 
+this.host = process.argv[2];
 this.strokeActive = false;
 this.LEDallblack = true;
 this.activeRed = 0;
@@ -33,7 +34,10 @@ this.activeSize = this.brushSizes[0];
 var self = this;
 
 if(io){
-	this.socket = io.connect('http://192.168.0.220:3002');
+	this.socket = io.connect(self.host);
+	if !this.socket){
+		this.socket = io.connect('http://192.168.0.220:3002');
+	}
 	self.joinedRoom = 'theRoom';
 	this.socket.on('connect', function (socket) {
 		console.log('Connected!');
