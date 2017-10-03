@@ -24,7 +24,7 @@ setInterval(function () {
 	unicornHatHD.setPixel(i % 16, Math.floor(i/16),red(i), green(i), blue(i));
     //pixelData[i] = colorwheel((offset + i) % 256);
   }
-
+  unicornHatHD.show(false, false);  
   offset = (offset + 1) % 256;
 }, 1000 / 30);
 
