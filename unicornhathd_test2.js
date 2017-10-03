@@ -5,7 +5,7 @@ var UnicornHatHD = require('unicornhat-hd');
 var unicornHatHD = new UnicornHatHD('/dev/spidev0.0');
  
 unicornHatHD.setBrightness(1.0);
-UnicornHatHD.clear();
+unicornHatHD.clear();
 
 var NUM_LEDS = 32;
 
