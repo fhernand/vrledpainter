@@ -1,4 +1,3 @@
-
 var io = require('socket.io-client');
 
 this.host = process.argv[2];
@@ -88,21 +87,22 @@ if(io){
 
 }
 
-var ws281x = require('rpi-ws281x-native');
+var UnicornHatHD = require('unicornhat-hd');
+var unicornHatHD = new UnicornHatHD('/dev/spidev0.0'); 
+unicornHatHD.setBrightness(1.0);
 
 var NUM_LEDS = 32,
-pixelData = new Uint32Array(NUM_LEDS);
-blackpixelData = new Uint32Array(NUM_LEDS);
 for (var i = 0; i < NUM_LEDS; i++) {
 			blackpixelData[i] = rgb2Int(0,0,0);
 }
-ws281x.init(NUM_LEDS);
 
+/*
 // ---- trap the SIGINT and reset before exit
 process.on('SIGINT', function () {
   ws281x.reset();
   process.nextTick(function () { process.exit(0); });
 });
+*/
 
 // ---- animation-loop
 setInterval(function () {
