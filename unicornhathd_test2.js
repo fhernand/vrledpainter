@@ -21,7 +21,7 @@ process.on('SIGINT', function () {
 var offset = 0;
 setInterval(function () {
   for (var i = 0; i < NUM_LEDS; i++) {
-	unicornHatHD.setPixel(i % 16, Math.floor(i/16),red(i), green(i), blue(i));
+	unicornHatHD.setPixel(i % 16, Math.floor(i/16),red((offset + i) % 256), green((offset + i) % 256), blue((offset + i) % 256));
     //pixelData[i] = colorwheel((offset + i) % 256);
   }
   unicornHatHD.show(false, false);  
