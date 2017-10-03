@@ -7,7 +7,7 @@ var unicornHatHD = new UnicornHatHD('/dev/spidev0.0');
 unicornHatHD.setBrightness(1.0);
 unicornHatHD.clear();
 
-var NUM_LEDS = 32;
+var NUM_LEDS = 256;
 
 /*
 // ---- trap the SIGINT and reset before exit
