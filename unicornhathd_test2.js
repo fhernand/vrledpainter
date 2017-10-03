@@ -21,11 +21,11 @@ process.on('SIGINT', function () {
 var offset = 0;
 setInterval(function () {
   for (var i = 0; i < NUM_LEDS; i++) {
-	unicornHatHD.setPixel(i % 16, Math.floor(i/16),red((offset + i) % 256), green((offset + i) % 256), blue((offset + i) % 256));
+	unicornHatHD.setPixel(i % 16, Math.floor(i/16),red((offset + Math.floor(i/16)) % 256), green((offset + Math.floor(i/16)) % 256), blue((offset + Math.floor(i/16)) % 256));
     //pixelData[i] = colorwheel((offset + i) % 256);
   }
   unicornHatHD.show(false, false);  
-  offset = (offset + 0.1) % 256;
+  offset = (offset + 1) % 256;
 }, 1000 / 30);
 
 console.log('Press <ctrl>+C to exit.');
