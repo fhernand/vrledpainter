@@ -129,7 +129,7 @@ setInterval(function () {
 			}
 		   }
 		}
-		unicornHatHD.show(false,false);
+		unicornHatHD.show(true,false);
 		if(self.LEDallblack){
 			self.LEDallblack = false;
 		}
