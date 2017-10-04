@@ -108,20 +108,20 @@ setInterval(function () {
 	if (self.strokeActive && self.activeSize != self.brushSizes[0]){
 		var lowModifier = 4;
 		var mediumModifier = 2;
-		for (var y = 0; y < NUM_ROWS; y++) {
-		   for (var x = 0; x < NUM_COLS; x++) {
+		for (var x = 0; x < NUM_ROWS; x++) {
+		   for (var y = 0; y < NUM_COLS; y++) {
 			switch (self.activeSize[x][y]){
 				case '0':
-					unicornHatHD.setPixel(x,y,0,0,0);
+					unicornHatHD.setPixel(y,x,0,0,0);
 					break;
 				case '1':
-					unicornHatHD.setPixel(x,y,Math.floor(self.activeRed / lowModifier), Math.floor(self.activeGreen / lowModifier), Math.floor(self.activeBlue / lowModifier));
+					unicornHatHD.setPixel(y,x,Math.floor(self.activeRed / lowModifier), Math.floor(self.activeGreen / lowModifier), Math.floor(self.activeBlue / lowModifier));
 					break;					
 				case '2':
-					unicornHatHD.setPixel(x,y,Math.floor(self.activeRed / mediumModifier), Math.floor(self.activeGreen / mediumModifier), Math.floor(self.activeBlue / mediumModifier));
+					unicornHatHD.setPixel(y,x,Math.floor(self.activeRed / mediumModifier), Math.floor(self.activeGreen / mediumModifier), Math.floor(self.activeBlue / mediumModifier));
 					break;					
 				case '3':
-					unicornHatHD.setPixel(x,y,Math.floor(self.activeRed), Math.floor(self.activeGreen), Math.floor(self.activeBlue));
+					unicornHatHD.setPixel(y,x,Math.floor(self.activeRed), Math.floor(self.activeGreen), Math.floor(self.activeBlue));
 					break;
 				default:
 					//console.log("No size data available");
