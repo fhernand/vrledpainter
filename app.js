@@ -35,7 +35,7 @@ var self = this;
 
 if(io){
 	this.socket = io.connect(self.host);
-	if !this.socket){
+	if (!this.socket){
 		this.socket = io.connect('http://192.168.0.220:3002');
 	}
 	self.joinedRoom = 'theRoom';
