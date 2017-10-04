@@ -7,7 +7,6 @@ this.activeRed = 0;
 this.activeGreen = 0;
 this.activeBlue = 0;
 this.activeLEDSize = 0;
-this.blackColor =  rgb2Int(0,0,0);
 
 
 this.sizeZero     = [['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0']];
@@ -35,7 +34,7 @@ var self = this;
 
 if(io){
 	this.socket = io.connect(self.host);
-	if !this.socket){
+	if (!this.socket){
 		this.socket = io.connect('http://192.168.0.220:3002');
 	}
 	self.joinedRoom = 'theRoom';
@@ -92,11 +91,8 @@ var UnicornHatHD = require('unicornhat-hd');
 var unicornHatHD = new UnicornHatHD('/dev/spidev0.0'); 
 unicornHatHD.setBrightness(1.0);
 
-var NUM_LEDS = 256,
-for (var i = 0; i < NUM_LEDS; i++) {
-			blackpixelData[i] = rgb2Int(0,0,0);
-}
-
+var NUM_ROWS = 16;
+var NUM_COLS = 16;
 
 // ---- trap the SIGINT and reset before exit
 process.on('SIGINT', function () {
@@ -107,29 +103,30 @@ process.on('SIGINT', function () {
 
 // ---- animation-loop
 setInterval(function () {
-	if (self.strokeActive && self.activeSize){
+	if (self.strokeActive && self.activeSize != self.brushSizes[0]){
 		var lowModifier = 4;
 		var mediumModifier = 2;
-		
-		for (var i = 0; i < NUM_LEDS; i++) {
-			var x = i % 16;
-			var y = Math.floor(i/16);
-			switch (self.activeSize[x][y]){
-				case '0':
-					unicornHatHD.setPixel(x,y,0,0,0);
-					break;
-				case '1':
-					unicornHatHD.setPixel(x,y,Math.floor(self.activeRed / lowModifier), Math.floor(self.activeGreen / lowModifier), Math.floor(self.activeBlue / lowModifier));
-					break;					
-				case '2':
-					unicornHatHD.setPixel(x,y,Math.floor(self.activeRed / mediumModifier), Math.floor(self.activeGreen / mediumModifier), Math.floor(self.activeBlue / mediumModifier));
-					break;					
-				case '3':
-					unicornHatHD.setPixel(x,y,Math.floor(self.activeRed), Math.floor(self.activeGreen), Math.floor(self.activeBlue));
-					break;
-				default:
-					//console.log("No size data available");
-					//pixelData[i] = colorwheel((offset + i) % 256);
+		if (){
+			for (var x = 0; x < NUM_ROWS; x++) {
+			   for (var y = 0; y < NUM_COLS; y++) {
+				switch (self.activeSize[x][y]){
+					case '0':
+						unicornHatHD.setPixel(x,y,0,0,0);
+						break;
+					case '1':
+						unicornHatHD.setPixel(x,y,Math.floor(self.activeRed / lowModifier), Math.floor(self.activeGreen / lowModifier), Math.floor(self.activeBlue / lowModifier));
+						break;					
+					case '2':
+						unicornHatHD.setPixel(x,y,Math.floor(self.activeRed / mediumModifier), Math.floor(self.activeGreen / mediumModifier), Math.floor(self.activeBlue / mediumModifier));
+						break;					
+					case '3':
+						unicornHatHD.setPixel(x,y,Math.floor(self.activeRed), Math.floor(self.activeGreen), Math.floor(self.activeBlue));
+						break;
+					default:
+						//console.log("No size data available");
+						//pixelData[i] = colorwheel((offset + i) % 256);
+				}
+			   }
 			}
 		}
 		unicornHatHD.show(false,false);
@@ -143,7 +140,7 @@ setInterval(function () {
 
 function clearLEDs(){
 	if (!self.LEDallblack){
-		unicornHatHD.clear();
+		unicornHatHD.off();
 		self.LEDallblack = true;
 	}	
 }
