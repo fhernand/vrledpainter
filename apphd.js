@@ -97,7 +97,8 @@ var NUM_COLS = 16;
 
 // ---- trap the SIGINT and reset before exit
 process.on('SIGINT', function () {
-  unicornHatHD.off();
+  unicornHatHD.clear();
+  unicornHatHD.show(false,false);
   process.nextTick(function () { process.exit(0); });
 });
 
@@ -139,7 +140,8 @@ setInterval(function () {
 
 function clearLEDs(){
 	if (!self.LEDallblack){
-		unicornHatHD.off();
+		unicornHatHD.clear();
+		unicornHatHD.show(false,false);
 		self.LEDallblack = true;
 	}	
 }
