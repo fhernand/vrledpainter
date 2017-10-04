@@ -108,8 +108,8 @@ setInterval(function () {
 	if (self.strokeActive && self.activeSize != self.brushSizes[0]){
 		var lowModifier = 4;
 		var mediumModifier = 2;
-		for (var x = 0; x < NUM_ROWS; x++) {
-		   for (var y = 0; y < NUM_COLS; y++) {
+		for (var y = 0; y < NUM_ROWS; y++) {
+		   for (var x = 0; x < NUM_COLS; x++) {
 			switch (self.activeSize[x][y]){
 				case '0':
 					unicornHatHD.setPixel(x,y,0,0,0);
