@@ -34,9 +34,10 @@ this.activeSize = this.brushSizes[0];
 var self = this;
 
 if(io){
-	this.socket = io.connect(self.host);
-	if (!this.socket){
+	if(!this.host){	
 		this.socket = io.connect('http://192.168.0.220:3002');
+	} else {	
+		this.socket = io.connect(self.host);
 	}
 	self.joinedRoom = 'theRoom';
 	this.socket.on('connect', function (socket) {
