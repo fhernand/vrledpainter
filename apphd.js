@@ -82,7 +82,7 @@ this.round_brushSizes = [this.round_sizeZero,this.round_sizeOne, this.round_size
 this.square_brushSizes = [this.square_sizeZero,this.square_sizeOne, this.square_sizeTwo, this.square_sizeThree,this.square_sizeFour, this.square_sizeFive, this.square_sizeSix, this.square_sizeSeven, this.square_sizeEight, this.square_sizeNine, this.square_sizeTen, this.square_sizeEleven, this.square_sizeTwelve, this.square_sizeThirteen, this.square_sizeFourteen, this.square_sizeFifteen];
 this.dot_brushSizes = [this.round_sizeZero,this.dot_sizeOne, this.dot_sizeTwo, this.dot_sizeThree,this.round_sizeFour, this.dot_sizeFive, this.dot_sizeSix, this.dot_sizeSeven, this.dot_sizeEight, this.dot_sizeNine, this.dot_sizeTen, this.dot_sizeEleven, this.dot_sizeTwelve, this.dot_sizeThirteen, this.dot_sizeFourteen, this.dot_sizeFifteen];
 
-this.activeBrush = this.default_brushSizes
+this.activeBrush = this.default_brushSizes;
 this.activeSize = this.activeBrush[0];
 
 var self = this;
@@ -112,6 +112,22 @@ if(io){
 	this.socket.on('newStroke', event => {
 		if(event.stroke.owner === self.socket.owner) return;
 		//console.log("New stroke");
+		switch(event.stroke.brush) {
+		    case 'unicorn':
+			this.activeBrush = this.default_brushSizes;
+			break;
+		    case 'unicornround':
+			this.activeBrush = this.round_brushSizes;
+			break;
+		    case 'unicornsquare':
+			this.activeBrush = this.square_brushSizes;
+			break;
+		    case 'unicorndot':
+			this.activeBrush = this.dot_brushSizes;
+			break;
+		    default:
+			this.activeBrush = this.default_brushSizes;
+		}
 		this.activeRed = Math.round(event.stroke.color[0] * 255);
 		this.activeGreen = Math.round(event.stroke.color[1] * 255);
 		this.activeBlue = Math.round(event.stroke.color[2] * 255);
