@@ -137,7 +137,7 @@ if(io){
 
 	  this.socket.on('endStroke', () => {
 		//console.log("End stroke");
-		self.activeSize = self.brushSizes[0];  
+		self.activeSize = self.activeBrush[0];  
 		self.strokeActive = false;
 	  });
 
@@ -153,7 +153,7 @@ if(io){
 		//console.log("LEDSize changed: ", event.ledsize);
 		  if (event.ledsize != self.activeLEDSize){
 		      self.activeLEDSize = event.ledsize;
-		      self.activeSize = self.brushSizes[event.ledsize];	 
+		      self.activeSize = self.activeBrush[event.ledsize];	 
 		  }
 	  });	
 
@@ -176,7 +176,7 @@ process.on('SIGINT', function () {
 
 // ---- animation-loop
 setInterval(function () {
-	if (self.strokeActive && self.activeSize != self.brushSizes[0]){
+	if (self.strokeActive && self.activeSize != self.activeBrush[0]){
 		var lowModifier = 4;
 		var mediumModifier = 2;
 		for (var x = 0; x < NUM_ROWS; x++) {
