@@ -161,7 +161,7 @@ if(io){
 
 var UnicornHatHD = require('unicornhat-hd');
 var unicornHatHD = new UnicornHatHD('/dev/spidev0.0'); 
-unicornHatHD.setBrightness(1.0);
+unicornHatHD.setBrightness(0.7);
 
 var NUM_ROWS = 16;
 var NUM_COLS = 16;
