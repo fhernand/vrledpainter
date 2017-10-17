@@ -203,7 +203,7 @@ if(io){
 
 var UnicornHatHD = require('unicornhat-hd');
 var unicornHatHD = new UnicornHatHD('/dev/spidev0.0'); 
-unicornHatHD.setBrightness(0.7);
+unicornHatHD.setBrightness(0.7); // a little dim for f22, tokkna 11mm, w/polarizing filtrr
 
 var NUM_ROWS = 16;
 var NUM_COLS = 16;
