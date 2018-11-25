@@ -10,22 +10,22 @@ this.activeBlue = 0;
 this.activeLEDSize = 0;
 this.blackColor =  rgb2Int(0,0,0);
 
-this.sizeZero     = ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];  
-this.sizeOne      = ['0','0','0','0','0','0','0','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];  
-this.sizeTwo      = ['0','0','0','0','0','0','0','0','0','0','0','2','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];  
-this.sizeThree    = ['0','0','0','0','0','0','0','0','0','0','0','3','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];  
-this.sizeFour     = ['0','0','0','0','0','0','0','0','0','0','0','3','3','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];  
-this.sizeFive     = ['0','0','0','0','0','0','0','0','0','0','1','3','3','1','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];  
-this.sizeSix      = ['0','0','0','1','1','0','0','0','0','0','2','3','3','2','0','0','0','0','0','1','1','0','0','0','0','0','0','0','0','0','0','0'];  
-this.sizeSeven    = ['0','0','1','1','1','1','0','0','0','1','3','3','3','3','1','0','0','0','1','2','2','1','0','0','0','0','0','1','1','0','0','0'];  
-this.sizeEight    = ['0','0','1','2','2','1','0','0','0','2','3','3','3','3','2','0','0','0','2','3','3','2','0','0','0','0','1','2','2','1','0','0'];  
-this.sizeNine     = ['0','0','2','3','3','2','0','0','1','3','3','3','3','3','3','1','0','1','3','3','3','3','1','0','0','0','2','3','3','2','0','0'];  
-this.sizeTen      = ['0','1','3','3','3','3','1','0','2','3','3','3','3','3','3','2','0','2','3','3','3','3','2','0','0','1','2','3','3','2','1','0'];  
-this.sizeEleven   = ['1','3','3','3','3','3','3','1','3','3','3','3','3','3','3','3','1','3','3','3','3','3','3','1','0','2','3','3','3','3','2','0'];  
-this.sizeTwelve   = ['2','3','3','3','3','3','3','2','3','3','3','3','3','3','3','3','2','3','3','3','3','3','3','2','1','2','3','3','3','3','2','1'];  
-this.sizeThirteen = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','2','3','3','3','3','3','3','2','2','2','3','3','3','3','2','2'];  
-this.sizeFourteen = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','2','3','3','3','3','3','3','2'];  
-this.sizeFifteen  = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3'];  
+this.sizeZero     = ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];
+this.sizeOne      = ['0','0','0','0','0','0','0','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];
+this.sizeTwo      = ['0','0','0','0','0','0','0','0','0','0','0','2','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];
+this.sizeThree    = ['0','0','0','0','0','0','0','0','0','0','0','3','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];
+this.sizeFour     = ['0','0','0','0','0','0','0','0','0','0','0','3','3','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];
+this.sizeFive     = ['0','0','0','0','0','0','0','0','0','0','1','3','3','1','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'];
+this.sizeSix      = ['0','0','0','1','1','0','0','0','0','0','2','3','3','2','0','0','0','0','0','1','1','0','0','0','0','0','0','0','0','0','0','0'];
+this.sizeSeven    = ['0','0','1','1','1','1','0','0','0','1','3','3','3','3','1','0','0','0','1','2','2','1','0','0','0','0','0','1','1','0','0','0'];
+this.sizeEight    = ['0','0','1','2','2','1','0','0','0','2','3','3','3','3','2','0','0','0','2','3','3','2','0','0','0','0','1','2','2','1','0','0'];
+this.sizeNine     = ['0','0','2','3','3','2','0','0','1','3','3','3','3','3','3','1','0','1','3','3','3','3','1','0','0','0','2','3','3','2','0','0'];
+this.sizeTen      = ['0','1','3','3','3','3','1','0','2','3','3','3','3','3','3','2','0','2','3','3','3','3','2','0','0','1','2','3','3','2','1','0'];
+this.sizeEleven   = ['1','3','3','3','3','3','3','1','3','3','3','3','3','3','3','3','1','3','3','3','3','3','3','1','0','2','3','3','3','3','2','0'];
+this.sizeTwelve   = ['2','3','3','3','3','3','3','2','3','3','3','3','3','3','3','3','2','3','3','3','3','3','3','2','1','2','3','3','3','3','2','1'];
+this.sizeThirteen = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','2','3','3','3','3','3','3','2','2','2','3','3','3','3','2','2'];
+this.sizeFourteen = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','2','3','3','3','3','3','3','2'];
+this.sizeFifteen  = ['3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3','3'];
 
 this.brushSizes = [this.sizeZero,this.sizeOne, this.sizeTwo, this.sizeThree,this.sizeFour, this.sizeFive, this.sizeSix, this.sizeSeven, this.sizeEight, this.sizeNine, this.sizeTen, this.sizeEleven, this.sizeTwelve, this.sizeThirteen, this.sizeFourteen, this.sizeFifteen];
 
@@ -34,9 +34,9 @@ this.activeSize = this.brushSizes[0];
 var self = this;
 
 if(io){
-	if(!this.host){	
+	if(!this.host){
 		this.socket = io.connect('http://192.168.0.39:3002');
-	} else {	
+	} else {
 		this.socket = io.connect(self.host);
 	}
 	self.joinedRoom = 'theRoom';
@@ -63,11 +63,11 @@ if(io){
 		this.activeBlue = Math.round(event.stroke.color[2] * 255);
 		self.strokeActive = true;
 	  });
-	
+
 
 	  this.socket.on('endStroke', () => {
 		//console.log("End stroke");
-		self.activeSize = self.brushSizes[0];  
+		self.activeSize = self.brushSizes[0];
 		self.strokeActive = false;
 	  });
 
@@ -77,15 +77,15 @@ if(io){
 		//console.log("New points");
 	  });
 	  */
-	
+
 	  this.socket.on('newLEDSize', event => {
-		  
+
 		//console.log("LEDSize changed: ", event.ledsize);
 		  if (event.ledsize != self.activeLEDSize){
 		      self.activeLEDSize = event.ledsize;
-		      self.activeSize = self.brushSizes[event.ledsize];	 
+		      self.activeSize = self.brushSizes[event.ledsize];
 		  }
-	  });	
+	  });
 
 }
 
@@ -98,6 +98,7 @@ for (var i = 0; i < NUM_LEDS; i++) {
 			blackpixelData[i] = rgb2Int(0,0,0);
 }
 ws281x.init(NUM_LEDS);
+ws281x.setBrightness(0.5);
 
 // ---- trap the SIGINT and reset before exit
 process.on('SIGINT', function () {
@@ -111,8 +112,8 @@ setInterval(function () {
 		var lowModifier = 4;
 		var mediumModifier = 2;
 		var currentColor = rgb2Int(self.activeRed,self.activeGreen,self.activeBlue);
-		var currentColorLow = rgb2Int(Math.round(self.activeRed / lowModifier), Math.round(self.activeGreen / lowModifier), Math.round(self.activeBlue / lowModifier)); 
-		var currentColorMedium = rgb2Int(Math.round(self.activeRed / mediumModifier), Math.round(self.activeGreen / mediumModifier), Math.round(self.activeBlue / mediumModifier)); 
+		var currentColorLow = rgb2Int(Math.round(self.activeRed / lowModifier), Math.round(self.activeGreen / lowModifier), Math.round(self.activeBlue / lowModifier));
+		var currentColorMedium = rgb2Int(Math.round(self.activeRed / mediumModifier), Math.round(self.activeGreen / mediumModifier), Math.round(self.activeBlue / mediumModifier));
 		for (var i = 0; i < NUM_LEDS; i++) {
 			switch (self.activeSize[i]){
 				case '0':
@@ -120,10 +121,10 @@ setInterval(function () {
 					break;
 				case '1':
 					pixelData[NUM_LEDS - 1 - i] = currentColorLow;
-					break;					
+					break;
 				case '2':
 					pixelData[NUM_LEDS - 1 - i] = currentColorMedium;
-					break;					
+					break;
 				case '3':
 					pixelData[NUM_LEDS - 1 - i] = currentColor;
 					break;
@@ -145,10 +146,9 @@ function clearLEDs(){
 	if (!self.LEDallblack){
 		ws281x.render(blackpixelData);
 		self.LEDallblack = true;
-	}	
+	}
 }
 
 function rgb2Int(r, g, b) {
   return ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
 }
-
