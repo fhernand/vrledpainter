@@ -98,7 +98,7 @@ for (var i = 0; i < NUM_LEDS; i++) {
 			blackpixelData[i] = rgb2Int(0,0,0);
 }
 ws281x.init(NUM_LEDS);
-ws281x.setBrightness(0.5);
+ws281x.setBrightness(128);
 
 // ---- trap the SIGINT and reset before exit
 process.on('SIGINT', function () {
