@@ -40,7 +40,7 @@ var self = this;
 
 if(io){
 	if(!this.host){
-		this.socket = io.connect('http://192.168.0.6:3002');
+		this.socket = io.connect('http://192.168.0.38:3002');
 	} else {
 		this.socket = io.connect(self.host);
 		console.log(self.host);
@@ -111,7 +111,7 @@ for (var i = 0; i < NUM_LEDS; i++) {
 			blackpixelData[i] = rgb2Int(0,0,0);
 }
 ws281x.init(NUM_LEDS);
-ws281x.setBrightness(6);
+ws281x.setBrightness(24);
 
 // ---- trap the SIGINT and reset before exit
 process.on('SIGINT', function () {
