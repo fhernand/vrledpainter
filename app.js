@@ -57,9 +57,10 @@ var self = this;
 
 if(io){
 	if(!this.host){
-		this.socket = io.connect('http://192.168.0.39:3002');
+		this.socket = io.connect('http://192.168.0.6:3002');
 	} else {
 		this.socket = io.connect(self.host);
+		console.log(self.host);
 	}
 	self.joinedRoom = 'theRoom';
 	this.socket.on('connect', function (socket) {
