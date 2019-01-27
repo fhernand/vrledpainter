@@ -80,7 +80,7 @@ if(io){
 
 	this.socket.on('newStroke', event => {
 		if(event.stroke.owner === self.socket.owner) return;
-		//console.log("New stroke");
+		console.log(event.stroke.brush);
 		switch(event.stroke.brush) {
 				case 'unicorn':
 			this.activeBrush = this.brushSizes;
