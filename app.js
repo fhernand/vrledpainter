@@ -80,7 +80,6 @@ if(io){
 
 	this.socket.on('newStroke', event => {
 		if(event.stroke.owner === self.socket.owner) return;
-		console.log(event.stroke.brush);
 		switch(event.stroke.brush) {
 				case 'unicorn':
 			this.activeBrush = this.brushSizes;
@@ -94,6 +93,7 @@ if(io){
 			this.activeBrush = this.brushSizes;
 			NUM_LEDS = 32;
 		}
+		console.log(NUM_LEDS);
 		this.activeRed = Math.round(event.stroke.color[0] * 255);
 		this.activeGreen = Math.round(event.stroke.color[1] * 255);
 		this.activeBlue = Math.round(event.stroke.color[2] * 255);
