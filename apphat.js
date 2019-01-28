@@ -74,6 +74,7 @@ if(io){
 		this.activeGreen = Math.round(event.stroke.color[1] * 255);
 		this.activeBlue = Math.round(event.stroke.color[2] * 255);
 		self.strokeActive = true;
+		console.log(event.stroke.brush);
 	  });
 
 
