@@ -122,8 +122,8 @@ if(io){
 	  this.socket.on('newBrightness', event => {
 		  if (event.brightness != self.activeBrightness){
 		      self.activeBrightness = event.brightness;
-		      ws281x.setBrightness(self.activeBrightness);
 			  console.log("Brightness changed: ", self.activeBrightness);
+		      //ws281x.setBrightness(self.activeBrightness);
 		  }
 	  });
 }
