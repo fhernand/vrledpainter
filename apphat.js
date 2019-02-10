@@ -123,7 +123,7 @@ if(io){
 		  if (event.brightness != self.activeBrightness){
 		      self.activeBrightness = event.brightness;
 			  console.log("Brightness changed: ", self.activeBrightness);
-		      //ws281x.setBrightness(self.activeBrightness);
+		      ws281x.setBrightness(self.activeBrightness);
 		  }
 	  });
 }
